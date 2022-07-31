@@ -23,6 +23,14 @@
     "type": "perf",
     "description": "A code change that improves performance"
   },
+  {
+    "type": "refactor",
+    "description": "A code change that neither fixes a bug nor adds a feature" 
+  },
+  { 
+    "type": "revert",
+    "description": "Reverts a previous commit"
+  },
   { 
     "type": "style",
     "description": "Changes that do not affect the meaning of the code"
@@ -30,5 +38,9 @@
   { 
     "type": "test",
     "description": "Adding missing tests or correcting existing tests"
+  },
+  { 
+    "type": "WIP",
+    "description": "Work in progress"
   }
 ]
