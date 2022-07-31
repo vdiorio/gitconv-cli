@@ -17,7 +17,7 @@ inquirer.prompt([
     name: 'scope',
     message: `Type in a ${'(scope)'.blue.bold}`,
     transformer(input, {type}) {
-      return `${'Preview:'.grey} "${type.yellow}${!input.length ? '' : `(${input})`.blue}${':'.yellow}"`;
+      return `${'(Optional)'.grey} "${type.yellow}${!input.length ? '' : `(${input})`.blue}${':'.yellow}"`;
     },
     validate(input): boolean | string {
       if (input === '') return true;
