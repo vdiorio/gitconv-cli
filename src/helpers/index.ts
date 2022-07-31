@@ -25,3 +25,32 @@ export function searchType(_answers: CommitInfo, input = '') {
     }, Math.random() * 470 + 30);
   });
 }
+
+export async function commit(commitInfo: CommitInfo) {
+  const {type, scope, body, footers} = commitInfo;
+  const hasScope = scope !== '';
+  const hasFooters = footers.length !== 0;
+  try {
+    await execa(
+        'git',
+        [
+          'commit',
+          `-m '${type.trim()}${hasScope ? `(${scope})` : ''}'`,
+          `-m '${body.trim()}`,
+          `-m '${hasFooters ? footers.join('\n'): ''}`,
+        ],
+        {
+          buffer: false,
+          stdio: 'inherit',
+        },
+    );
+  } catch (e) {
+    const error = e as { escapedCommand: string };
+    console.error(
+        '\n',
+        'Oops! An error ocurred. There is likely additional logging output above.\n'.red,
+        'You can run the same commit with this command:\n'.red,
+        error.escapedCommand.blue,
+    );
+  }
+}
