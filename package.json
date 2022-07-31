@@ -3,20 +3,21 @@
   "version": "1.0.0",
   "description": "A conventional commits client for padronized commit messages.",
   "main": "./lib/index.js",
+  "bin": {
+    "gitconv": "./lib/index.js"
+  },
   "scripts": {
     "start": "node --loader ts-node/esm src/index.ts",
     "build": "tsc -p .",
-    "local": "npm run build && sudo npm i --location=global && gitconv",
-    "lint": "eslint --fix --ext .ts,.tsx ."
+    "local": "sudo npm i . --location=global && gitconv",
+    "lint": "eslint --fix --ext .ts,.tsx .",
+    "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
   },
   "keywords": [
     "conventional",
     "commit",
     "vdiorio"
   ],
-  "bin": {
-    "gitconv": "./lib/index.js"
-  },
   "author": "vdiorio",
   "license": "ISC",
   "devDependencies": {
