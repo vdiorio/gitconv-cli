@@ -1,8 +1,17 @@
 #!/usr/bin/env node
-const chalk = require('chalk');
-const clear = require('clear');
-const figlet = require('figlet');
-const path = require('path');
-const program = require('commander');
 
-console.log('Hello world!')
+import inquirer, { Answers } from "inquirer";
+import inquirerPrompt from 'inquirer-autocomplete-prompt';
+import { searchType } from "./helpers";
+
+inquirer.registerPrompt('autocomplete', inquirerPrompt );
+inquirer.prompt([
+  {
+    type: 'autocomplete',
+    name: 'type',
+    message: `Choose a commit ${'type'.yellow.bold}:`,
+    source: searchType,
+  },
+]).then((answers: Answers) => {
+    console.log(answers);
+  })
