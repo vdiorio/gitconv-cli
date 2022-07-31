@@ -36,6 +36,12 @@ inquirer.prompt([
       return input.length > 0 ? true : 'Insert a valid title';
     }
   },
+  {
+    type: 'input',
+    name: 'body',
+    message: `Type in the commit ${'body'.cyan} ${'(Optional)'.grey}:`,
+    transformer: (input) => `${input.cyan}`,
+  },
 ]).then((answers: Answers) => {
     console.log(answers);
   })
