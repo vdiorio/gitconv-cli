@@ -42,6 +42,27 @@ inquirer.prompt([
     message: `Type in the commit ${'body'.cyan} ${'(Optional)'.grey}:`,
     transformer: (input) => `${input.cyan}`,
   },
-]).then((answers: Answers) => {
-    console.log(answers);
-  })
+]).then(async (answers: Answers) => {
+  let loop = true;
+  answers.footers = [];
+  while (loop) {
+    const ans = await inquirer.prompt([
+      {
+        type: 'confirm',
+        name: 'add',
+        message: 'Add footer?',
+        default: false,
+      },
+      {
+        type: 'input',
+        name: 'footer',
+        message: `Type in the commit ${'footer'.magenta} ${'(Optional)'.magenta}:`,
+        transformer: (input) => `${input.magenta}`,
+        when: ({add}) => add,
+      },
+    ]);
+    loop = ans.add;
+    if (ans.footer) answers.footers.push(ans.footer);
+  }
+  console.log(answers);
+});
