@@ -3,7 +3,7 @@ export interface CommitInfo {
   scope: string,
   title: string,
   body: string,
-  footer: string,
+  footers: string[],
 }
 
 export interface ConventionalCommitTypes {
