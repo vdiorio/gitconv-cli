@@ -13,8 +13,12 @@ export function setDescriptionIndent(string: string) {
 }
 
 export function searchType(_answers: CommitInfo, input = '') {
+  const typesChoices = [...types, ...types.map((t: ConventionalCommitTypes) => ({
+    type: `${t.type}!`, description: `${t.description} ${'("!")'.dim}`,
+  }))];
+
   return new Promise((resolve) => {
-    const choices = types.map(({type, description}: ConventionalCommitTypes) => ({
+    const choices = typesChoices.map(({type, description}: ConventionalCommitTypes) => ({
       name: `${setDescriptionIndent(type).yellow.bold} - ${description}`,
       value: type,
     }));
