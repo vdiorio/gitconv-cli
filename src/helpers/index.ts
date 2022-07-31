@@ -27,7 +27,7 @@ export function searchType(_answers: CommitInfo, input = '') {
 }
 
 export async function commit(commitInfo: CommitInfo) {
-  const {type, scope, body, footers} = commitInfo;
+  const {type, title, scope, body, footers} = commitInfo;
   const hasScope = scope !== '';
   const hasFooters = footers.length !== 0;
   try {
@@ -35,9 +35,9 @@ export async function commit(commitInfo: CommitInfo) {
         'git',
         [
           'commit',
-          `-m '${type.trim()}${hasScope ? `(${scope})` : ''}'`,
-          `-m '${body.trim()}`,
-          `-m '${hasFooters ? footers.join('\n'): ''}`,
+          '-m', `${type.trim()}${hasScope ? `(${scope})` : ''}: ${title}`,
+          '-m', `${body.trim()}`,
+          '-m', `${hasFooters ? `${footers.join('\n')}` : ''}`,
         ],
         {
           buffer: false,
