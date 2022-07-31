@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 import 'colors';
-import inquirer, {Answers} from 'inquirer';
+import inquirer from 'inquirer';
 import inquirerPrompt from 'inquirer-autocomplete-prompt';
-import {searchType} from './helpers';
+import {commit, searchType} from './helpers';
+import {CommitInfo} from './interfaces';
 
 inquirer.registerPrompt('autocomplete', inquirerPrompt);
 inquirer.prompt([
@@ -42,7 +43,7 @@ inquirer.prompt([
     message: `Type in the commit ${'body'.cyan} ${'(Optional)'.grey}:`,
     transformer: (input) => `${input.cyan}`,
   },
-]).then(async (answers: Answers) => {
+]).then(async (answers: CommitInfo) => {
   let loop = true;
   answers.footers = [];
   while (loop) {
@@ -64,5 +65,5 @@ inquirer.prompt([
     loop = ans.add;
     if (ans.footer) answers.footers.push(ans.footer);
   }
-  console.log(answers);
+  commit(answers);
 });
