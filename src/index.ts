@@ -24,6 +24,18 @@ inquirer.prompt([
       return  /^\S+$/.test(input) ? true : 'Scope must not contain spaces';
     }
   },
+  {
+    type: 'input',
+    name: 'title',
+    message: `Type in the commit ${'title'.green.bold}`,
+    transformer: (input, { type, scope }) => {
+      const suffix = `[${input.length}/48] | "${type.yellow}${scope.length ? `(${scope})`.blue : ''}${':'.yellow}`;
+      return `${suffix} ${input.green}"`;
+    },
+    validate(input) {
+      return input.length > 0 ? true : 'Insert a valid title';
+    }
+  },
 ]).then((answers: Answers) => {
     console.log(answers);
   })
