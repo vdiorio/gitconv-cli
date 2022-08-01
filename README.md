@@ -7,7 +7,7 @@
 # About
 
 This project provides an easy solution for using [**Conventional Commits**](https://www.conventionalcommits.org/en/v1.0.0/) from your command line. Gitconv-cli solves the hassle of searching through the conventional commits list.
-<br><br><br>
+<br>
 
 # Install
 ### First, clone the repo
@@ -25,7 +25,7 @@ sudo npm i . --location=global
 ```bash
 npm run local
 ```
-<br><br><br>
+<br>
 
 # TODO
 The functionalities below are intended to be released, but not yet implemented.
@@ -38,7 +38,7 @@ Search using specific keywords to find the right TAG.
 ```bash
 gitconv -s "criteria"
 ```
-<br><br><br>
+<br>
 
 ## List(NOT IMPLEMENTED)
 
@@ -55,7 +55,7 @@ gitconv -l
 Vitor Diorio - [@Samuraidoaxe](https://twitter.com/Samuraidoaxe) - [Linkedin](https://www.linkedin.com/in/vitordiorio/) - vdioriomd@gmail.com
 
 Project Link: [https://gitlab.com/vdiorio/upload-download-enline](https://gitlab.com/vdiorio/upload-download-enline)
-<br><br><br>
+<br>
 
 <!-- ACKNOWLEDGMENTS -->
 # Useful links
