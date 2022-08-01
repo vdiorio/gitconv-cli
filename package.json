@@ -1,5 +1,5 @@
 {
-  "name": "conventional-cli",
+  "name": "gitconv-cli",
   "version": "1.0.0",
   "description": "A conventional commits client for padronized commit messages.",
   "main": "./lib/index.js",
@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node --loader ts-node/esm src/index.ts",
     "build": "tsc -p .",
-    "local": "sudo npm i . --location=global && gitconv",
+    "local": "npm run build && npm i . --location=global",
     "lint": "eslint --fix --ext .ts,.tsx .",
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
   },
@@ -36,9 +36,9 @@
   },
   "dependencies": {
     "colors": "^1.4.0",
-    "inquirer": "^8.2.4",
-    "inquirer-autocomplete-prompt": "^2.0.0",
     "execa": "5.1.1",
-    "fuse.js": "6.6.2"
+    "fuse.js": "6.6.2",
+    "inquirer": "^8.2.4",
+    "inquirer-autocomplete-prompt": "^2.0.0"
   }
 }
