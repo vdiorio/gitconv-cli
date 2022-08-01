@@ -52,9 +52,10 @@ gitconv -l
 <!-- CONTACT -->
 # Contact
 
-Vitor Diorio - [@Samuraidoaxe](https://twitter.com/Samuraidoaxe) - [Linkedin](https://www.linkedin.com/in/vitordiorio/) - vdioriomd@gmail.com
-
-Project Link: [https://gitlab.com/vdiorio/upload-download-enline](https://gitlab.com/vdiorio/upload-download-enline)
+## Vitor Diorio
+- [Linkedin](https://www.linkedin.com/in/vitordiorio/)
+- [Github](https://github.com/vdiorio)
+- vdioriomd@gmail.com
 <br>
 
 <!-- ACKNOWLEDGMENTS -->
