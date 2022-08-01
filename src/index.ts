@@ -47,7 +47,7 @@ inquirer.prompt([
   let loop = true;
   answers.footers = [];
   while (loop) {
-    console.log(`${'?'.green} Footers[${answers.footers.length}] ${'(Optional)'.grey}:`);
+    console.log(`${'?'.green} Footers[${answers.footers.length.toString().magenta}] ${'(Optional)'.grey}:`);
     const ans = await inquirer.prompt([
       {
         type: 'confirm',
