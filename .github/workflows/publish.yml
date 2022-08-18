@@ -1,9 +1,5 @@
-on: push
-
 name: Publish to NPM
-on:
-  release:
-    types: [created]
+on: push
 jobs:
   build:
     runs-on: ubuntu-latest
