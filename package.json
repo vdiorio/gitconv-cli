@@ -1,6 +1,6 @@
 {
-  "name": "gitconv-cli",
-  "version": "1.0.0",
+  "name": "gitconv",
+  "version": "1.0.2",
   "description": "A conventional commits client for padronized commit messages.",
   "main": "./lib/index.js",
   "bin": {
@@ -16,9 +16,11 @@
   "keywords": [
     "conventional",
     "commit",
-    "vdiorio"
+    "vdiorio",
+    "cli"
   ],
   "author": "vdiorio",
+  "homepage": "https://github.com/vdiorio/gitconv-cli",
   "license": "ISC",
   "devDependencies": {
     "@types/inquirer": "^8.2.1",

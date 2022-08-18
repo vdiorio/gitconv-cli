@@ -10,44 +10,21 @@ This project provides an easy solution for using [**Conventional Commits**](http
 <br>
 
 # Install
-### First, clone the repo
-
-```bash
-git clone git@github.com:vdiorio/conventional-cli.git
-```
 
 ### npm
 
 ```bash
-sudo npm i . --location=global
-```
-### OR
-```bash
-npm run local
+npm i -g gitconv
 ```
 <br>
 
-# TODO
-The functionalities below are intended to be released, but not yet implemented.
-<br><br>
-
-## Search(NOT IMPLEMENTED)
-
-Search using specific keywords to find the right TAG.
+# Usage
+Simply run de command ```gitconv``` on your terminal.
 
 ```bash
-gitconv -s "criteria"
+gitconv
 ```
 <br>
-
-## List(NOT IMPLEMENTED)
-
-Pretty print all the available TAGS.
-
-```bash
-gitconv -l
-```
-<br><br>
 
 <!-- CONTACT -->
 # Contact
@@ -71,4 +48,26 @@ Some links that I love to share.
 * [GitHub Pages](https://pages.github.com)
 * [Font Awesome](https://fontawesome.com)
 * [React Icons](https://react-icons.github.io/react-icons/search)
+
+# TODO
+The functionalities below are intended to be released, but not yet implemented.
+<br><br>
+
+## Search(NOT IMPLEMENTED)
+
+Search using specific keywords to find the right TAG.
+
+```bash
+gitconv -s "criteria"
+```
+<br>
+
+## List(NOT IMPLEMENTED)
+
+Pretty print all the available TAGS.
+
+```bash
+gitconv -l
+```
+<br><br>
 
