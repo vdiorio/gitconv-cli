@@ -14,10 +14,17 @@
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
   },
   "keywords": [
-    "conventional",
+    "cli",
+    "cli-app",
     "commit",
-    "vdiorio",
-    "cli"
+    "console",
+    "conventional",
+    "conventional commit",
+    "extended",
+    "git",
+    "output",
+    "replace",
+    "vdiorio"
   ],
   "author": "vdiorio",
   "homepage": "https://github.com/vdiorio/gitconv-cli",
