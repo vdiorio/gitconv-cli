@@ -4,6 +4,10 @@
     "description": "Changes that affect the build system or external dependencies"
   },
   { 
+    "type": "chore",
+    "description": "Updating grunt tasks etc; no production code change"
+  },
+  { 
     "type": "ci",
     "description": "Changes to our CI configuration files and scripts"
   },
