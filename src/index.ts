@@ -6,8 +6,11 @@ import inquirerPrompt from "inquirer-autocomplete-prompt";
 import { commit, searchType } from "./helpers"; // Presumindo que você tenha funções auxiliares no helpers
 import { CommitInfo } from "./interfaces";
 import { argsHandler } from "./commands";
+import { checkForUpdates } from "./updateChecker";
 
 async function main() {
+  await checkForUpdates();
+
   // Registrar autocomplete prompt
   inquirer.registerPrompt("autocomplete", inquirerPrompt);
 
