@@ -53,32 +53,36 @@ function runUpdate() {
     }
     console.log(stdout);
     console.log("Update completed!".green);
+    process.exit(0);
   });
 }
 
-export async function checkForUpdates(check = false) {
-  if (shouldCheckForUpdates() || check) {
+export async function checkForUpdates(forceCheck = false) {
+  if (shouldCheckForUpdates() || forceCheck) {
     try {
       const latestVersion = await fetchLatestVersion();
 
       if (version !== latestVersion) {
         console.log(
-          `A new version of gitconv is available: ${latestVersion.blue}
-Your current version: ${version.red}
-          
-You can update with: ${"npm install -g gitconv@latest".cyan}
-        `.yellow
+          `A new version of gitconv is available: ${latestVersion.blue}`.yellow
         );
-
-        if (check) {
-          runUpdate(); // Automatically update if check flag is true
+        console.log(`Your current version is: ${version.blue}`.yellow);
+        if (forceCheck) {
+          runUpdate();
+        } else {
+          console.log(
+            `You can update with: ${"npm install -g gitconv@latest".cyan} or ${"gitconv -u".cyan}`
+              .yellow
+          );
         }
-      } else if (check) {
+      } else if (forceCheck) {
         console.log("No updates available.".green);
         console.log("Your current version is: ".green, version.blue);
       }
 
       writeLastUpdateCheck(); // Update the last check timestamp
+
+      if (forceCheck) process.exit(0);
     } catch (error) {
       console.error("Error checking for updates:", error); // Log the error message
     }
