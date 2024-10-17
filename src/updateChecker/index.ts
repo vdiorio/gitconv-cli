@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import "dotenv/config";
 import { version } from "./version";
-import { exec } from "child_process";
+import execa from "execa";
 
 const UPDATE_CHECK_INTERVAL = 1000 * 60 * 60 * 24; // 1 day in milliseconds
 const updateCheckFile = path.join(__dirname, "lastUpdateCheck.json");
@@ -43,18 +43,22 @@ async function fetchLatestVersion() {
 
 function runUpdate() {
   console.log("Running update...".cyan);
-  exec("npm install -g gitconv@latest", (error, stdout, stderr) => {
-    if (error) {
-      console.error("Error during update:", error);
-      return;
-    }
-    if (stderr) {
-      console.error("Update stderr:", stderr);
-    }
-    console.log(stdout);
+
+  try {
+    execa.sync("npm", ["install", "-g", "gitconv@latest"], {
+      buffer: false,
+      stdio: "inherit",
+    });
     console.log("Update completed!".green);
-  });
-  process.exit(0);
+  } catch (e) {
+    const error = e as execa.ExecaError;
+    console.error("Error during update:", error.message);
+    if (error.stderr) {
+      console.error("Update stderr:", error.stderr);
+    }
+  } finally {
+    process.exit(0);
+  }
 }
 
 export async function checkForUpdates(forceCheck = false) {
