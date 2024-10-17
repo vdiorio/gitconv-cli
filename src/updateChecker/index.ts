@@ -41,6 +41,10 @@ export async function checkForUpdates(check = false) {
           `A new version of gitconv is available: "${latestVersion}" You can update with: ${"npm install -g gitconv@latest".blue} \n\n`
             .yellow
         );
+      } else if (check) {
+        console.log("No updates available. \n");
+        console.log("Your current version is: ".green, version.blue);
+        process.exit(0);
       }
     } catch (error) {
       console.error("Error checking for updates:", error); // Log the error message
