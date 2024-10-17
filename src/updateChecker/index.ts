@@ -24,8 +24,8 @@ function shouldCheckForUpdates() {
   return false;
 }
 
-export async function checkForUpdates() {
-  if (shouldCheckForUpdates()) {
+export async function checkForUpdates(check = false) {
+  if (shouldCheckForUpdates() || check) {
     try {
       const response = await fetch("https://registry.npmjs.org/gitconv");
 

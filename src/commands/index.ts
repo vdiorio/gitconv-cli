@@ -1,4 +1,5 @@
 import { retryLastCommit, listTags } from "../helpers";
+import { checkForUpdates } from "../updateChecker";
 
 export async function argsHandler() {
   const args = process.argv.slice(2); // Get the command line arguments after "node script.js"
@@ -11,6 +12,8 @@ export async function argsHandler() {
     "--list": listTags,
     "-h": showHelp,
     "--help": showHelp,
+    "-u": () => checkForUpdates(true),
+    "--update": () => checkForUpdates(true),
   };
 
   // Get the first argument (command)
@@ -28,7 +31,8 @@ export async function argsHandler() {
         "Options:\n" +
         "-h, --help: Show this message\n" +
         "-l, --list: List all tags\n" +
-        "-r, --retry: Retry the last commit"
+        "-r, --retry: Retry the last commit\n" +
+        "-u, --update: Check for updates"
     );
     process.exit(0);
   }
