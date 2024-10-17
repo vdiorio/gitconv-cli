@@ -1,6 +1,6 @@
 {
   "name": "gitconv",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A conventional commits client for padronized commit messages.",
   "main": "./lib/index.js",
   "bin": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node ./lib/index.js",
-    "build": "tsc -p . && copyfiles package.json lib/",
+    "build": "node ./build.js && tsc -p .",
     "local": "node ./lib/index.js",
     "lint": "eslint --fix --ext .ts,.tsx .",
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "colors": "^1.4.0",
+    "dotenv": "^16.4.5",
     "execa": "5.1.1",
     "fuse.js": "6.6.2",
     "gitconv": "file:",
