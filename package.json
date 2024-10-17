@@ -1,6 +1,6 @@
 {
   "name": "gitconv",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A conventional commits client for padronized commit messages.",
   "main": "./lib/index.js",
   "bin": {
