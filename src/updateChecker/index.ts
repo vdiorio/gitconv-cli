@@ -2,6 +2,7 @@ import "colors";
 import fs from "fs";
 import path from "path";
 import "dotenv/config";
+import { version } from "./version";
 
 const updateCheckFile = path.join(__dirname, "lastUpdateCheck.json");
 
@@ -32,15 +33,10 @@ export async function checkForUpdates() {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
-      const packageInfo = await response.json();
-      const currentVersion = process.env.CURRENT_VERSION; // Get the current version from package.json
-      console.log("Current Version:", currentVersion); // Debug: log current version
+      const packageInfo = await response.json(); // Get the current version from package.json
       const latestVersion = packageInfo["dist-tags"].latest;
 
-      console.log("Current Version:", currentVersion); // Debug: log current version
-      console.log("Latest Version:", latestVersion); // Debug: log latest version
-
-      if (currentVersion !== latestVersion) {
+      if (version !== latestVersion) {
         console.log(
           `A new version of gitconv is available: "${latestVersion}" You can update with: ${"npm install -g gitconv@latest".blue} \n\n`
             .yellow
