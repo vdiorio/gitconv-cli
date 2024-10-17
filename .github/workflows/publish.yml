@@ -10,7 +10,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3 # Updated to the latest version
         with:
-          node-version: "14.20.0"
+          node-version: "18.20.3"
           registry-url: "https://registry.npmjs.org"
 
       - name: Get current version from package.json
