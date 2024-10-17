@@ -18,7 +18,6 @@ const commitError = [
 // Função para salvar o commit em um arquivo JSON
 function saveLastCommit(lastCommit: string) {
   fs.writeFileSync(LAST_COMMIT_FILE, JSON.stringify({ lastCommit }));
-  console.log(`Last commit: ${lastCommit}`.red);
 }
 
 // Função para executar o commit e salvar o último commit
@@ -44,7 +43,7 @@ export function commit(commitInfo: CommitInfo) {
       }
     );
 
-    saveLastCommit(commited.command);
+    saveLastCommit(commited.escapedCommand);
     process.exit(0);
     // Salvar as informações do último commit após o sucesso
   } catch (e) {
@@ -74,8 +73,6 @@ export async function retryLastCommit() {
       message: "This will run the command: ".red + lastCommit.blue,
     },
   ]);
-
-  console.log({ retry });
 
   // If the user confirms, execute the command
   if (retry) {
