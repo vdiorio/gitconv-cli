@@ -53,14 +53,16 @@ function runUpdate() {
     }
     console.log(stdout);
     console.log("Update completed!".green);
-    process.exit(0);
   });
+  process.exit(0);
 }
 
 export async function checkForUpdates(forceCheck = false) {
   if (shouldCheckForUpdates() || forceCheck) {
     try {
       const latestVersion = await fetchLatestVersion();
+
+      writeLastUpdateCheck(); // Update the last check timestamp
 
       if (version !== latestVersion) {
         console.log(
@@ -79,8 +81,6 @@ export async function checkForUpdates(forceCheck = false) {
         console.log("No updates available.".green);
         console.log("Your current version is: ".green, version.blue);
       }
-
-      writeLastUpdateCheck(); // Update the last check timestamp
 
       if (forceCheck) process.exit(0);
     } catch (error) {
